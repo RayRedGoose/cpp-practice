@@ -17,6 +17,17 @@ class Users {
         void set_admin (string username);
         string get_full_name ();
         string get_account_info ();
+        
+        Users(string input_username, string input_password)
+        {
+            username = input_username;
+            password = input_password;
+        }
+    
+        ~Users()
+        {
+            cout << "Memory has been cleaned.";
+        }
 
     private:
         string username = "admin";
