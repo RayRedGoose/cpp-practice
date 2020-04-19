@@ -13,11 +13,23 @@
 using namespace std;
 
 int main() {
+    cout << "Welcome to Tic Tac Toe game!" << endl;
+    cout << " " << endl;
+    
     int user;
+    string position;
+    
     TicTacToe *game = new TicTacToe;
     game->start_game();
+    game->show_board();
+    
     user = game->get_current_user();
-    cout << user;
+    
+    cout << " " << endl;
+    cout << "User 1 turn:" << endl;
+    cin >> position;
+    
+
     return 0;
 };
     
