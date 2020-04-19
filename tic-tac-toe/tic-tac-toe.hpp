@@ -26,6 +26,10 @@ class TicTacToe {
         bool check_slot (char);
         char get_slot_value (string);
         int get_current_user ();
+        char chose_element ();
+        void place_element (char, string);
+        bool check_winner ();
+        void show_board ();
 };
 
 #endif /* tic_tac_toe_hpp */
