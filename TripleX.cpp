@@ -1,18 +1,19 @@
 #include <iostream>
+#include <ctime>
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
-    std::cout << "\n\nYou are a secret agent breaking into a secure server room\n";
-    std::cout << "You need to enter the correct codes to continue...\n\n";
+    std::cout << "\n\nYou are a secret agent breaking into a level" << Difficulty;
+    std::cout << "secure server room...\n You need to enter the correct codes to continue...\n\n";
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
-    PrintIntroduction();
+    PrintIntroduction(Difficulty);
 
-    int CodeA = 4;
-    int CodeB = 3;
-    int CodeC = 2;
+    int CodeA = rand() % Difficulty + Difficulty;
+    int CodeB = rand() % Difficulty + Difficulty;
+    int CodeC = rand() % Difficulty + Difficulty;
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProduct = CodeA * CodeB * CodeC;
@@ -46,11 +47,21 @@ bool PlayGame()
 
 int main () 
 {
-    while (true)
+    srand(time(NULL)); 
+    
+    int LevelDifficulty = 1;
+    int MaxDifficulty = 5;
+
+    while (LevelDifficulty <= MaxDifficulty)
     {
-        bool bLevelComplete = PlayGame();
+        bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear();
         std::cin.ignore();
+
+        if (bLevelComplete) 
+        {
+            ++LevelDifficulty;
+        }
     }
     return 0;
 }
